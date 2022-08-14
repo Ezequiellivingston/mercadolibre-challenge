@@ -11,9 +11,19 @@ module.exports = (env, arg) => {
   const filename = isProduction ? '[name].[contenthash]' : '[name]'
 
   return {
-    entry: './src/main.js',
+    entry: {
+      server: './src/server.js',
+      main: './src/client.js'
+    },
 
     devtool: 'source-map',
+
+    target: 'node',
+
+    node: {
+      __dirname: false,
+      __filename: false
+    },
 
     module: {
       rules: [
@@ -41,7 +51,8 @@ module.exports = (env, arg) => {
       new HtmlWebpackPlugin({
         inject: 'body',
         template: './public/index.html',
-        filename: path.resolve(__dirname, './build/index.html'),
+        filename: path.resolve(__dirname, './build/public/index.html'),
+        excludeChunks: ['server'],
         minify: isProduction
       }),
 
@@ -76,7 +87,11 @@ module.exports = (env, arg) => {
     output: {
       path: path.resolve(__dirname, 'build'),
       clean: true,
-      filename: `${filename}.js`
+      filename: ({ chunk }) => {
+        if (chunk.name === 'server') return '[name].js'
+
+        return `${filename}.js`
+      }
     },
 
     optimization: {

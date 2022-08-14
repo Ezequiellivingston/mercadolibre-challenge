@@ -12,7 +12,11 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ["babel-loader"],
-            }
+            },
+            {
+                test: /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,
+                type: "asset/resource",
+            },
         ],
     },
 

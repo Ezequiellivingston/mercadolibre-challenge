@@ -6,6 +6,8 @@ import App from './App'
 hydrateRoot(
   document.getElementById('root'),
   <BrowserRouter>
-    <App />
+    <App initialProps={window.__INITIAL_PROPS__} />
   </BrowserRouter>
 )
+
+delete window.__INITIAL_PROPS__

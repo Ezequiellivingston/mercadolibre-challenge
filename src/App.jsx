@@ -1,22 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Routes, Route } from 'react-router-dom'
+import { routes } from './routes'
 
 import './styles/main.scss'
 
-import Home from './pages/Home'
-import Detail from './pages/Detail'
-import Search from './pages/Search'
-
-function App () {
+function App ({ initialProps }) {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/items" element={<Search />} />
-        <Route path="/items/:id" element={<Detail />} />
-      </Routes>
-    </>
+    <Routes>
+      {routes.map(({ path, component: Page }) => (<Route key={path} path={path} element={<Page {...initialProps} />} />))}
+    </Routes>
   )
+}
+
+App.propTypes = {
+  initialProps: PropTypes.object
 }
 
 export default App

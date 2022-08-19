@@ -26,7 +26,7 @@ const configBase = {
       },
       {
         test: /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,
-        type: 'asset/resource'
+        type: 'asset'
       },
       {
         test: /\.(s*)css$/,

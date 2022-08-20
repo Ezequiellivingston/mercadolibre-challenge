@@ -1,0 +1,9 @@
+@import "../../styles/vars";
+
+.product-search-result {
+  background-color: $color-white;
+}
+
+.product-search-result li:last-child .product-card {
+  border-bottom: none;
+}

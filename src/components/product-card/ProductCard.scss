@@ -1,0 +1,56 @@
+@use "sass:map";
+@import "../../styles/vars";
+
+.product-card-wrapper {
+  padding: map.get($spaces, "md");
+}
+
+.product-card {
+  display: grid;
+  list-style: none;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  border-bottom: 1px solid $color-gray;
+
+  &__body {
+    padding: map.get($spaces, "md");
+  }
+
+  &__img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    object-fit: contain;
+    border-radius: map.get($borders, "sm");
+  }
+
+  &__title {
+    text-decoration: none;
+
+    h2 {
+      font-weight: 400;
+      font-size: map.get($font-sizes, "lg");
+      color: $text-color-secundary;
+      max-width: 500px;
+    }
+  }
+
+  &__price {
+    margin-bottom: map.get($spaces, "xl");
+    font-size: map.get($font-sizes, "xl");
+    color: $text-color-primary;
+  }
+
+  &__state {
+    color: $text-color-tertiary;
+    font-size: map.get($font-sizes, "xs");
+    margin-top: map.get($font-sizes, "lg");
+  }
+
+  @media (min-width: map.get($breakpoints, "md")) {
+    & {
+      grid-template-rows: 1fr;
+      grid-template-columns: 180px 2fr 1fr;
+    }
+  }
+}

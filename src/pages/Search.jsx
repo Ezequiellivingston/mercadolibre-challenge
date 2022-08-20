@@ -2,19 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 
-function Search ({ results }) {
+import ProductSearchResult from '@/containers/product-search-result/ProductSearchResult'
+import Breadcrumb from '../components/breadcrumb/Breadcrumb'
+
+function Search ({ query }) {
   return (
-    <div>Search: <ul>{ results.map(({ id, title }) => <li key={id}>{title}</li>) } </ul></div>
+    <div className='row container'>
+      <div className='col-10 col-offset-1'>
+        <Breadcrumb />
+
+        <ProductSearchResult products={ query.results } />
+      </div>
+    </div>
   )
 }
 
 Search.propTypes = {
-  results: PropTypes.object
+  query: PropTypes.object
 }
 
 Search.getInitialProps = async ({ query }) => {
-  const res = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${query.q}`).then(res => res.data)
-  return { results: res.results }
+  const response = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${query.q}&limit=4`).then(res => res.data)
+  return { query: response }
 }
 
 export default Search

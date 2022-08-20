@@ -9,7 +9,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 const filename = isProduction ? '[name].[contenthash]' : '[name]'
 
 const configBase = {
-  devtool: 'source-map',
+  devtool: !isProduction ? 'source-map' : undefined,
 
   mode: process.env.NODE_ENV,
 
@@ -79,7 +79,6 @@ const configClient = {
       inject: 'body',
       template: './public/index.html',
       filename: path.resolve(__dirname, './build/public/index.html'),
-      excludeChunks: ['server'],
       minify: isProduction
     })
   ],

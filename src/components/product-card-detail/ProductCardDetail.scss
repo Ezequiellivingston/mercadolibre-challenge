@@ -1,0 +1,91 @@
+@use "sass:map";
+@import "../../styles/vars";
+
+.product-card-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: $color-white;
+  padding: map.get($spaces, "xl");
+  row-gap: map.get($spaces, "2xl");
+
+  &__img {
+    display: flex;
+    justify-content: center;
+
+    & img {
+      object-fit: scale-down;
+    }
+  }
+
+  &-header {
+    padding: map.get($spaces, "xl") map.get($spaces, "xl") map.get($spaces, "xl") 0;
+
+    &__subtitle {
+      font-size: map.get($font-sizes, "sm");
+      color: $text-color-tertiary;
+      margin-bottom: map.get($spaces, "md");
+    }
+
+    &__title {
+      font-size: map.get($font-sizes, "xl");
+      color: $text-color-primary;
+    }
+
+    &__button-buy {
+      width: 100%;
+      background-color: $color-primary;
+      color: white;
+      border: transparent;
+      padding: map.get($spaces, "md");
+      border-radius: map.get($borders, "md");
+      font-size: map.get($font-sizes, "lg");
+
+      &:hover {
+        background-color: $color-primary-dark;
+      }
+    }
+  }
+
+  &-description {
+    &__title {
+      font-size: map.get($font-sizes, "2xl");
+      font-weight: 400;
+      max-width: 70%;
+    }
+
+    &__content {
+      font-size: map.get($font-sizes, "md");
+      color: $text-color-tertiary;
+      margin: map.get($spaces, "xl") 0;
+      font-weight: 300;
+    }
+  }
+
+  &-price {
+    margin: map.get($spaces, "xl") 0;
+    font-size: map.get($font-sizes, "3xl");
+    display: flex;
+
+    &__currency {
+      margin-right: map.get($spaces, "sm");
+    }
+  }
+
+  @media (min-width: map.get($breakpoints, "md")) {
+    & {
+      grid-template-columns: repeat(10, 1fr);
+    }
+
+    &__img {
+      grid-column: 1/8;
+    }
+
+    &-header {
+      grid-column: 8/11;
+    }
+
+    &-description {
+      grid-column: 1/8;
+    }
+  }
+}

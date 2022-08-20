@@ -1,0 +1,8 @@
+@use "sass:map";
+@import "../../styles/vars";
+
+.breadcrumb {
+  font-size: map.get($font-sizes, "sm");
+  color: $text-color-tertiary;
+  margin: map.get($spaces, "md") 0;
+}

@@ -9,6 +9,7 @@ import { matchPath } from 'react-router-dom'
 import { StaticRouter } from 'react-router-dom/server'
 import { routes } from './routes'
 
+const port = process.env.PORT || 8080
 const app = express()
 const template = fs.readFileSync(path.resolve(__filename, '../public/index.html'), 'utf-8')
 const defaultGetInitialProps = () => Promise.resolve({})
@@ -36,4 +37,4 @@ app.get('*', (req, res) => {
   })
 })
 
-app.listen(8080, () => console.log('Server runinng in port 8080'))
+app.listen(port, () => console.log(`Server runinng in port ${port}`))

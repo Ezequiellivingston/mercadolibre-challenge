@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+
+  &--fluid {
+    max-width: 100% !important;
+  }
+}
+
+@mixin generate($max-width) {
+  .container {
+    max-width: $max-width;
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    @include generate($size);
+  }
+}

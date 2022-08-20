@@ -1,0 +1,17 @@
+@use "sass:color";
+
+$color-brand: #ffe600;
+$color-primary: #3483fa;
+$color-primary-dark: color.scale($color-primary, $lightness: -10%);
+$color-gray: #eeee;
+$color-white: #fff;
+$text-color-primary: #333;
+$text-color-secundary: #666;
+$text-color-tertiary: #999;
+$colors: ("brand": $color-brand, "primary": $color-primary, "gray": $color-gray, "white": $color-white);
+$breakpoints: ("sm": 640px, "md": 992px, "lg": 1280px, "xl": 1536px);
+$gaps: ("none": 0, "sm": 4px, "md": 8px, "lg": 16px, "xl": 24px);
+$font-sizes: ("xs": 12px,"sm": 14px, "md": 16px, "lg": 18px, "xl": 24px, "2xl": 28px, "3xl": 46px);
+$spaces: ("none": 0, "xs": 4px, "sm": 8px, "md": 16px, "lg": 24px, "xl": 32px, "2xl": 48px);
+$borders: ("none": 0, "sm": 4px, "md": 6px);
+$font-family: "Proxima Nova", -apple-system, roboto, arial, sans-serif;

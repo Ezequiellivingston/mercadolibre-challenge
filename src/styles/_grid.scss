@@ -1,0 +1,42 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+@for $col from 1 through 12 {
+  .col-#{$col} {
+    grid-column: span $col / span $col;
+  }
+}
+
+@for $offset from 1 through 12 {
+  .col-offset-#{$offset} {
+    grid-column-start: $offset + 1;
+  }
+}
+
+@mixin generate($breakpoint) {
+  @for $col from 1 through 12 {
+    .col-#{$breakpoint}-#{$col} {
+      grid-column: span $col / span $col;
+    }
+  }
+
+  @for $offset from 1 through 12 {
+    .col-offset-#{$breakpoint}-#{$offset} {
+      grid-column-start: $offset + 1;
+    }
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    @include generate($name);
+  }
+}
+
+@each $name, $gap in $gaps {
+  .gap-#{$name} {
+    column-gap: $gap;
+  }
+}

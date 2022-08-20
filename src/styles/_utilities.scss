@@ -1,0 +1,68 @@
+.height-navbar {
+  height: 50px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@each $name, $size in $font-sizes {
+  .font-size-#{$name} {
+    font-size: $size !important;
+  }
+}
+
+@each $name, $border in $borders {
+  .rounded-#{$name} {
+    border-radius: $border !important;
+  }
+}
+
+@each $name, $space in $spaces {
+  .p-#{$name} {
+    padding: $space !important;
+  }
+  .p-y-#{$name} {
+    padding-top: $space !important;
+    padding-bottom: $space !important;
+  }
+  .p-x-#{$name} {
+    padding-left: $space !important;
+    padding-right: $space !important;
+  }
+  .p-top-#{$name} {
+    padding-top: $space !important;
+  }
+  .p-right-#{$name} {
+    padding-right: $space !important;
+  }
+  .p-bottom-#{$name} {
+    padding-bottom: $space !important;
+  }
+  .p-left-#{$name} {
+    padding-left: $space !important;
+  }
+  .m-#{$name} {
+    margin: $space !important;
+  }
+  .m-y-#{$name} {
+    margin-top: $space !important;
+    margin-bottom: $space !important;
+  }
+  .m-x-#{$name} {
+    margin-left: $space !important;
+    margin-right: $space !important;
+  }
+  .m-top-#{$name} {
+    margin-top: $space !important;
+  }
+  .m-right-#{$name} {
+    margin-right: $space !important;
+  }
+  .m-bottom-#{$name} {
+    margin-bottom: $space !important;
+  }
+  .m-left-#{$name} {
+    margin-left: $space !important;
+  }
+}

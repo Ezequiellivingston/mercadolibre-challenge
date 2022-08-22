@@ -1,11 +1,11 @@
 # mercadolibre-challenge
 Aplicacion ssr utilizando React y express.
 
-## Getting started
+## Iniciar en Dev
 
 Clonar repositorio.
 
-Instalacion de dependencias  
+Instalacion de dependencias
 ```npm i```
 
 Para inicialización como dev
